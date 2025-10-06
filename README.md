@@ -15,3 +15,40 @@ The project demonstrates how to manage **full-time and part-time employees**, ca
 ---
 
 ## 📂 Project Structure
+## 📊 UML Class Diagram
+classDiagram
+    class Employee {
+        - String name
+        - int id
+        + getName() String
+        + getId() int
+        + calculateSalary() double*
+        + toString() String
+    }
+
+    class FullTimeEmployee {
+        - double monthlySalary
+        + calculateSalary() double
+    }
+
+    class PartTimeEmployee {
+        - int hoursWorked
+        - double hourlyRate
+        + calculateSalary() double
+    }
+
+    class PayrollSystem {
+        - ArrayList<Employee> employeeList
+        + addEmployee(Employee e)
+        + removeEmployee(int id)
+        + displayEmployee()
+    }
+
+    class Main {
+        + main(String[] args)
+    }
+
+    Employee <|-- FullTimeEmployee
+    Employee <|-- PartTimeEmployee
+    PayrollSystem --> Employee
+    Main --> PayrollSystem
